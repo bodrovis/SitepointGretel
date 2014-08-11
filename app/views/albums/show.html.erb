@@ -1,0 +1,9 @@
+<% breadcrumb :album, @album, cheap: true %>
+
+<div class="page-header">
+  <h1><%= @album.title %></h1>
+</div>
+
+<p><%= @album.description %></p>
+
+<%= link_to 'Edit', edit_album_path(@album), class: 'btn btn-primary' %>

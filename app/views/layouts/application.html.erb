@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Breadcrumbs</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Music shop', root_path, class: 'navbar-brand' %>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to 'Albums', albums_path %></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to 'Profile', user_path(1) %></li>
+    </ul>
+
+    <%= form_tag search_path, method: :get, class: 'navbar-form navbar-right' do %>
+      <% text_field_tag 'q', nil, placeholder: 'Search' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <%= breadcrumbs pretext: "You are here: ",
+                  separator: "",
+                  display_single_fragment: true,
+                  style: :bootstrap, link_current: true %>
+
+  <%= yield %>
+</div>
+
+</body>
+</html>

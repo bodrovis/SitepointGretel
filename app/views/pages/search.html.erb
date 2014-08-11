@@ -1,0 +1,11 @@
+<% breadcrumb :search, @term %>
+
+<% parent_breadcrumb do |link| %>
+  <%= link_to "Back to #{link.text}", link.url %>
+<% end %>
+
+<div class="page-header">
+  <h1>Searching for <%= @term %></h1>
+</div>
+
+<p>Guess what? Coming soon!</p>
